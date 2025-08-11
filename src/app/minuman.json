@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "/images/es-lemon.png",
+    "nama": "Iced lemon tea",
+    "harga": 7000,
+    "opsi_tambahan": [
+      { "nama": "Extra size", "harga": 10000 },
+      { "nama": "Extra lemon", "harga": 3000 },
+      { "nama": "Extra ice", "harga": 2000 }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "/images/teh-pucuk.jpg",
+    "nama": "Teh pucuk Harum",
+    "harga": 5000,
+    "opsi_tambahan": [
+      { "nama": "Extra size", "harga": 10000 },
+      { "nama": "Extra ice", "harga": 2000 }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "/images/air-mineral.png",
+    "nama": "Air mineral",
+    "harga": 5000,
+    "opsi_tambahan": [
+      { "nama": "Extra size", "harga": 10000 },
+      { "nama": "Extra lemon", "harga": 3000 },
+      { "nama": "Extra ice", "harga": 2000 }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "/images/teh-botol.jpg",
+    "nama": "Teh botol",
+    "harga": 7000,
+    "opsi_tambahan": [
+      { "nama": "Extra size", "harga": 10000 },
+      { "nama": "Extra ice", "harga": 2000 }
+    ]
+  }
+]
