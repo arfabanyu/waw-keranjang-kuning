@@ -2,7 +2,7 @@
   "image": "/images/kentang.png",
   "nama": "Kentang isi keranjang",
   "harga": 10000,
-  "opsi_tambahan": [
+  "opsiTambahan": [
     { "nama": "Extra keju mozzarella", "harga": 10000 },
     { "nama": "Cheetos", "harga": 10000 },
     { "nama": "Sosis", "harga": 6000 }

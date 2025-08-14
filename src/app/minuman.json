@@ -4,7 +4,7 @@
     "image": "/images/es-lemon.png",
     "nama": "Iced lemon tea",
     "harga": 7000,
-    "opsi_tambahan": [
+    "opsiTambahan": [
       { "nama": "Extra size", "harga": 10000 },
       { "nama": "Extra lemon", "harga": 3000 },
       { "nama": "Extra ice", "harga": 2000 }
@@ -15,7 +15,7 @@
     "image": "/images/teh-pucuk.jpg",
     "nama": "Teh pucuk Harum",
     "harga": 5000,
-    "opsi_tambahan": [
+    "opsiTambahan": [
       { "nama": "Extra size", "harga": 10000 },
       { "nama": "Extra ice", "harga": 2000 }
     ]
@@ -25,7 +25,7 @@
     "image": "/images/air-mineral.png",
     "nama": "Air mineral",
     "harga": 5000,
-    "opsi_tambahan": [
+    "opsiTambahan": [
       { "nama": "Extra size", "harga": 10000 },
       { "nama": "Extra lemon", "harga": 3000 },
       { "nama": "Extra ice", "harga": 2000 }
@@ -36,7 +36,7 @@
     "image": "/images/teh-botol.jpg",
     "nama": "Teh botol",
     "harga": 7000,
-    "opsi_tambahan": [
+    "opsiTambahan": [
       { "nama": "Extra size", "harga": 10000 },
       { "nama": "Extra ice", "harga": 2000 }
     ]

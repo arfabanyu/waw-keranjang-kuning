@@ -1,10 +1,8 @@
 import { OpsiTambahan } from './opsi-tambahan';
 
-export type CartItem = {
+export type Food = {
   nama: string;
   harga: number;
-  qty: number;
   opsiTambahan: OpsiTambahan[];
-  totalHarga: number;
   image: string;
 };
