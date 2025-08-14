@@ -86,9 +86,9 @@ export default function Page() {
           alt=''
           width={2000}
           height={2000}
-          className='w-48'
+          className='w-24 md:w-48'
         />
-        <h1 className='text-6xl font-bold text-yellow-300'>
+        <h1 className='text-2xl md:text-6xl font-bold text-yellow-300'>
           WAW KERANJANG KUNING
         </h1>
       </div>
@@ -98,7 +98,7 @@ export default function Page() {
       <br />
 
       <div className=''>
-        <h2 className='text-4xl font-bold mb-4'>Nama Pelanggan</h2>
+        <h2 className='text-2xl md:text-4xl font-bold mb-4'>Nama Pelanggan</h2>
         <div className='ml-0.5 space-y-2'>
           <Input
             onChange={(e) => setName(e.target.value)}
@@ -115,7 +115,7 @@ export default function Page() {
 
       {/* Makanan */}
       <div>
-        <h2 className='text-4xl font-bold mb-4'>Makanan</h2>
+        <h2 className='text-2xl md:text-4xl font-bold mb-4'>Makanan</h2>
         <FoodCard data={kentang} onAdd={addToCart} />
       </div>
 
@@ -125,8 +125,8 @@ export default function Page() {
 
       {/* Minuman */}
       <div>
-        <h2 className='text-4xl font-bold mb-4'>Minuman</h2>
-        <div className='grid grid-cols-[repeat(auto-fit,_290px)] gap-4'>
+        <h2 className='text-2xl md:text-4xl font-bold mb-4'>Minuman</h2>
+        <div className='grid grid-cols-1 place-content-center md:grid-cols-[repeat(auto-fit,_290px)] gap-4'>
           {drinks.map((drink, i) => (
             <FoodCard key={i} data={drink} onAdd={addToCart} />
           ))}
@@ -135,11 +135,11 @@ export default function Page() {
 
       {/* Cart */}
       {cart.length > 0 && (
-        <Card className='w-96 border-t pt-4 fixed right-10 top-10'>
+        <Card className='w-[calc(100%_-_40px)] md:w-96 border-t pt-4 fixed right-5 top-5'>
           <CardHeader>
             <h2 className='text-xl font-semibold'>Daftar Pesanan</h2>
           </CardHeader>
-          <CardContent className='max-h-56 overflow-y-scroll'>
+          <CardContent className='h-28 md:h-56 overflow-y-scroll'>
             {cart.map((item, i) => (
               <div key={i} className='flex flex-col border-b py-2'>
                 <div className='flex items-center justify-between'>
@@ -209,14 +209,14 @@ function FoodCard({ data, onAdd }: FoodCardProps) {
   }
 
   return (
-    <Card className='w-fit'>
-      <CardHeader className='w-72'>
+    <Card className='w-full md:w-fit'>
+      <CardHeader >
         <Image
           src={data.image}
           alt={data.nama}
           width={2000}
           height={2000}
-          className='w-72 max-h-42 rounded object-contain'
+          className='w-72 max-h-42 rounded object-contain m-auto'
         />
       </CardHeader>
       <CardContent>
@@ -241,7 +241,7 @@ function FoodCard({ data, onAdd }: FoodCardProps) {
           </div>
         )}
       </CardContent>
-      <CardFooter>
+      <CardFooter className='grid md:block'>
         <Button
           className='mt-4 rounded'
           onClick={() => onAdd(data, selectedOptions)}
