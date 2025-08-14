@@ -116,7 +116,9 @@ export default function Page() {
       {/* Makanan */}
       <div>
         <h2 className='text-2xl md:text-4xl font-bold mb-4'>Makanan</h2>
-        <FoodCard data={kentang} onAdd={addToCart} />
+        <div className='grid grid-cols-1 md:grid-cols-[repeat(auto-fit,_290px)] gap-4'>
+          <FoodCard data={kentang} onAdd={addToCart} />
+        </div>
       </div>
 
       <br />
@@ -126,7 +128,7 @@ export default function Page() {
       {/* Minuman */}
       <div>
         <h2 className='text-2xl md:text-4xl font-bold mb-4'>Minuman</h2>
-        <div className='grid grid-cols-1 place-content-center md:grid-cols-[repeat(auto-fit,_290px)] gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-[repeat(auto-fit,_290px)] gap-4'>
           {drinks.map((drink, i) => (
             <FoodCard key={i} data={drink} onAdd={addToCart} />
           ))}
@@ -209,8 +211,8 @@ function FoodCard({ data, onAdd }: FoodCardProps) {
   }
 
   return (
-    <Card className='w-full md:w-fit'>
-      <CardHeader >
+    <Card className='w-full'>
+      <CardHeader>
         <Image
           src={data.image}
           alt={data.nama}
