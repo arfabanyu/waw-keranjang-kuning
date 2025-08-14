@@ -13,9 +13,10 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { CartItem } from '@/types/cart-item';
 
 export default function Page() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   function addToCart(baseItem, selectedOptions) {
     // Hitung total harga opsi tambahan
@@ -33,14 +34,33 @@ export default function Page() {
       const existing = prev.find(
         (i) =>
           i.nama === newItem.nama &&
-          JSON.stringify(i.opsiTambahan) ===
-            JSON.stringify(newItem.opsiTambahan)
+          i.opsiTambahan.length === newItem.opsiTambahan.length &&
+          i.opsiTambahan.every(
+            (opt, idx) =>
+              opt.nama === newItem.opsiTambahan[idx].nama &&
+              opt.harga === newItem.opsiTambahan[idx].harga
+          )
       );
 
       if (existing) {
         return prev.map((i) => (i === existing ? { ...i, qty: i.qty + 1 } : i));
       }
       return [...prev, newItem];
+    });
+  }
+
+  function updateQty(index, change) {
+    setCart((prev) => {
+      const updated = [...prev];
+      updated[index].qty += change;
+      console.log('update');
+
+      // Hapus kalau qty <= 0
+      if (updated[index].qty <= 0) {
+        updated.splice(index, 1);
+      }
+
+      return updated;
     });
   }
 
@@ -73,9 +93,19 @@ export default function Page() {
           <h2 className='text-xl font-semibold'>Daftar Pesanan</h2>
           {cart.map((item, i) => (
             <div key={i} className='flex flex-col border-b py-2'>
-              <span>
-                {item.nama} x{item.qty}
-              </span>
+              <div className='flex items-center justify-between'>
+                <span>{item.nama}</span>
+                <div className='flex items-center gap-2'>
+                  <Button size='sm' onClick={() => updateQty(i, -1)}>
+                    -
+                  </Button>
+                  <span>{item.qty}</span>
+                  <Button size='sm' onClick={() => updateQty(i, 1)}>
+                    +
+                  </Button>
+                </div>
+              </div>
+
               {item.opsiTambahan.length > 0 && (
                 <ul className='text-sm text-gray-500 list-disc ml-4'>
                   {item.opsiTambahan.map((opt, j) => (
@@ -85,6 +115,7 @@ export default function Page() {
                   ))}
                 </ul>
               )}
+
               <span className='font-medium'>
                 Rp{item.totalHarga * item.qty}
               </span>
@@ -109,9 +140,9 @@ function FoodCard({ data, onAdd }) {
 
   function toggleOption(option) {
     setSelectedOptions((prev) =>
-      prev.includes(option)
-        ? prev.filter((o) => o !== option)
-        : [...prev, option]
+      prev.find((o) => o.nama === option.nama)
+        ? prev.filter((o) => o.nama !== option.nama)
+        : [...prev, { nama: option.nama, harga: option.harga }]
     );
   }
 
